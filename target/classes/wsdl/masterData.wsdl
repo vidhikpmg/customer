@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.integration.acceval.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="MasterDataWebService" targetNamespace="http://ws.integration.acceval.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.integration.acceval.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ws.integration.acceval.com/">
+  <xs:complexType name="masterDataMaterialInMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="baseUom" type="xs:string"/>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="division" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="items" nillable="true" type="tns:item"/>
+      <xs:element minOccurs="0" name="materialType" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="multilingualNames" nillable="true" type="tns:multilingualValue"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="multilingualSalesSpecs" nillable="true" type="tns:multilingualValue"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="parentProduct" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="plantItems" nillable="true" type="tns:plantItem"/>
+      <xs:element minOccurs="0" name="prodocutDeletionFlag" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="salesSpec" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="item">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="deliveryPlant" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="distributionChannel" type="xs:string"/>
+      <xs:element minOccurs="0" name="materialGroup1" type="xs:string"/>
+      <xs:element minOccurs="0" name="materialGroup2" type="xs:string"/>
+      <xs:element minOccurs="0" name="materialGroup3" type="xs:string"/>
+      <xs:element minOccurs="0" name="materialGroup4" type="xs:string"/>
+      <xs:element minOccurs="0" name="packaging" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="salesAreaDeletionFlag" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="salesOrganisation" type="xs:string"/>
+      <xs:element minOccurs="0" name="salesUom" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="multilingualValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="language" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="plantItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="plant" type="xs:string"/>
+      <xs:element minOccurs="0" name="plantDeletionFlag" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="valuationClass" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="masterDataStatusMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="masterDataCustomerInMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accountGroup" type="xs:string"/>
+      <xs:element minOccurs="0" name="city" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="country" type="xs:string"/>
+      <xs:element minOccurs="0" name="creationDate" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="deletionFlag" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="faxNo" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="houseNo" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="industry" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="name1" type="xs:string"/>
+      <xs:element minOccurs="0" name="name2" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="name3" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="name4" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="orderBlock" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="poBox" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="postalCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="region" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="salesItems" nillable="true" type="tns:salesItem"/>
+      <xs:element minOccurs="0" name="shippingCondition" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="shortName" type="xs:string"/>
+      <xs:element minOccurs="0" name="street1" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="street2" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="street3" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="street4" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="street5" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="telephoneNo" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="salesItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="currency" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="customerHierarchies" nillable="true" type="tns:customerHierarchy"/>
+      <xs:element minOccurs="0" name="deletionFlag" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="deliveryPlant" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="distributionChannel" type="xs:string"/>
+      <xs:element minOccurs="0" name="division" type="xs:string"/>
+      <xs:element minOccurs="0" name="exchangeRateType" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="incoterm1" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="orderBlock" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="paymentTerm" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="salesGroup" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="salesOffice" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="salesOrg" type="xs:string"/>
+      <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="unloadingPort" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="customerHierarchy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="customerCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="partnerFunction" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Exception" type="tns:Exception"/>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="sendMaterial" type="tns:sendMaterial"/>
+  <xs:complexType name="sendMaterial">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="arg0" type="tns:masterDataMaterialInMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="sendMaterialResponse" type="tns:sendMaterialResponse"/>
+  <xs:complexType name="sendMaterialResponse">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="return" type="tns:masterDataStatusMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="sendCustomer" type="tns:sendCustomer"/>
+  <xs:complexType name="sendCustomer">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="arg0" type="tns:masterDataCustomerInMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="sendCustomerResponse" type="tns:sendCustomerResponse"/>
+  <xs:complexType name="sendCustomerResponse">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="return" type="tns:masterDataStatusMessage"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="Exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendCustomer">
+    <wsdl:part element="tns:sendCustomer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendMaterialResponse">
+    <wsdl:part element="tns:sendMaterialResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendMaterial">
+    <wsdl:part element="tns:sendMaterial" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendCustomerResponse">
+    <wsdl:part element="tns:sendCustomerResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MasterDataWebServicePortType">
+    <wsdl:operation name="sendMaterial">
+      <wsdl:input message="tns:sendMaterial" name="sendMaterial">
+    </wsdl:input>
+      <wsdl:output message="tns:sendMaterialResponse" name="sendMaterialResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="sendCustomer">
+      <wsdl:input message="tns:sendCustomer" name="sendCustomer">
+    </wsdl:input>
+      <wsdl:output message="tns:sendCustomerResponse" name="sendCustomerResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MasterDataWebServiceSoapBinding" type="tns:MasterDataWebServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendMaterial">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendMaterial">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendMaterialResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="sendCustomer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendCustomer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MasterDataWebService">
+    <wsdl:port binding="tns:MasterDataWebServiceSoapBinding" name="MasterDataWebServicePort">
+      <soap:address location="http://172.18.0.68:8099/webservices/masterData"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
